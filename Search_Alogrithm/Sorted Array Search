@@ -1,0 +1,46 @@
+package ugautam;
+
+public class SortedArraySearcher extends UnsortedArraySearcher{
+	
+	public SortedArraySearcher() 
+	{
+		// the constructor
+	}
+
+     public static <T  extends Comparable<? super T>> boolean inSortedArraySearcher(T[]array, T anEntry)  // the binary search module
+    {
+	 return binarySearch(array, 0, array.length-1, anEntry);
+     }
+     
+     public static <T extends Comparable<? super T>> boolean binarySearch(T[] array, int first, int last, T theItem) 
+     {
+    	 
+    	 int mid = (first +last)/2;   // finding the mid value
+    	 
+    	 boolean found = false;
+    	 
+    	  
+    	  if(first > last) 
+    	  {
+    		  found = false;
+    	  }
+    	  else if(theItem.equals(array[mid]))
+    	  {
+    		  found = true;
+    	  }
+    	  else if ((theItem.compareTo(array[mid]))<0)    // returning the half of the array we need
+    	  {
+    		  found = binarySearch(array, first, mid-1, theItem);
+    	  }
+    	  else 
+    	  {
+    		  found = binarySearch(array, mid+1, last, theItem);
+    	  }
+    	  return found;
+     
+     }
+
+	
+
+
+}
