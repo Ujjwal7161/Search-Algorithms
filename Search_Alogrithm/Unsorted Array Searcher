@@ -1,0 +1,47 @@
+// This class is responsible to search an unsorted array. It loops through each element of the unsorted array until it equals an element, else it returns the boolean 
+//value false. One method uses search without recursion while the other uses with recursion. 
+public class UnsortedArraySearcher {
+	public UnsortedArraySearcher ()
+	{
+		// the constructor
+	}
+	public static <T > boolean inUnsortedArraySearcher(T[] array, T anEntry) 	// search without recursion
+	{
+			boolean found = false;		// the boolean value to return
+			int index =0; 
+			while((!found) && index < array.length) // loop while the value is not found and until we hit the array length 
+			{
+				if(anEntry.equals(array[index])) 	// check to see if our entry is equal 
+				{
+					found = true;
+				}
+				index++;
+			}return found;
+	}
+
+	public static <T> boolean inUnsortedArrayRecursive( T[] array, T anEntry)  // search with recursion
+	{
+		return search(array, 0, array.length-1, anEntry);			// sending the sorted array, its first index, last index and the item to search
+	}
+	public static <T> boolean search(T[] array, int first, int last, T theItem) 
+	{
+		
+		boolean found = false;
+		if(first>last) 
+		{
+			found =false;
+		}else if(theItem.equals(array[first])) 
+		{
+			found = true;
+		}else 
+		{
+			found =search(array, first+1, last, theItem);
+		}
+		return found;
+		
+		
+		
+	}
+}
+
+
