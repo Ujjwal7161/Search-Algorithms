@@ -1,0 +1,53 @@
+
+
+import java.util.Scanner;
+
+public class DriverClass  extends  SortedArraySearcher{
+
+	public static void main(String[] args) {
+		
+		SortedArraySearcher search = new SortedArraySearcher();
+
+		Integer [] numbers  =  {1,3,4,5,2,6,9,7,8,10};		// unsorted array
+		Integer [] sortedArray = {1,2,3,4,5,6,7,8,9,10};  // sorted array
+		Scanner input = new Scanner(System.in);
+		
+		boolean found = false;
+		
+		System.out.println("Your Array: ");
+		for (int i =0; i < numbers.length; i++) 
+		{
+			System.out.println(numbers[i]);			// printing our array	
+		}
+		System.out.println("Pick a number to search: ");
+		int ans = input.nextInt();
+		found = search.inUnsortedArraySearcher(numbers, ans);  // unsorted array search
+		if(found) 
+		{
+			System.out.println(ans +" is in your list. (Array Searcher)" );
+		}else 
+		{
+			System.out.println(ans +" is not in your list. (Array Searcher)");
+		}
+		found = search.inUnsortedArrayRecursive(numbers, ans);		// unsorted array search with recursion
+		if(found) 
+		{
+			System.out.println(ans +" is in your list. (Recursive Search)" );
+		}else 
+		{
+			System.out.println(ans +" is not in your list. (Recursive Search)");
+		}
+		System.out.println(" ");
+		System.out.println("We Will be Performing Binnary Search Now");
+		found = search.inSortedArraySearcher(sortedArray, ans);			// the binary search
+		if(found) 
+		{
+			System.out.println(ans +" is in your list. (Binary Search)" );
+		}else 
+		{
+			System.out.println(ans +" is not in your list. (Binary Searcher)");
+		}
+	}
+
+
+}
